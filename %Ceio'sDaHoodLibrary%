@@ -1,0 +1,108 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Da Shit", "BloodTheme")
+
+
+local Tab = Window:NewTab("Main")
+local Section = Tab:NewSection("Scripts")
+Section:NewButton("Aimlock", "Press E to Lock on", function()
+	Section:NewLabel("Aimbot")
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Stefanuk12/ROBLOX/master/Games/Da%20Hood/SilentAimAimLock.lua"))()
+end)
+Section:NewLabel("Swag Mode")
+Section:NewButton("Swag mode", "execute swag mode :D", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/CrystalManMan/crystacentral/main/swagnomodusers"))()
+end)
+Section:NewLabel("Crystal Central")
+	Section:NewButton("Crystal central", "execute Crystal cental :D. Also v To close the gui", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/CrystalManMan/crystacentral/main/wonder"))()
+end)
+Section:NewLabel("Animation changer")
+Section:NewButton("animation changer", "Change your animation at will", function()
+	teclaopen = "M" ---Cambia la tecla, por la que gustes para cerrar la GUI
+
+	loadstring(game:HttpGet("https://god-x.000webhostapp.com/linkAnimatorEdit.lua", true))()
+end)
+Section:NewLabel("Raycodex")
+Section:NewButton("Raycodex", "", function()
+	loadstring(game:GetObjects("rbxassetid://5812737894")[1].Source)()
+end)
+Section:NewLabel("Crash script (must have 5-4k cash to use)")
+Section:NewButton("Crash script", "Must have 5k cash at least", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/NighterEpic/Crash/main/YesEpic", true))()
+end)
+Section:NewLabel("Titan script (must have max strength before injecting)")
+Section:NewButton("Titan script", "Titan I guess", function()
+	local function rm()
+		for i, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+			if v.Name == "OriginalPosition" then
+				v:Destroy()
+			elseif v.Name == "OriginalSize" then
+				v:Destroy()
+			elseif v.Name == "AvatarPartScaleType" then
+				v:Destroy()
+			end
+		end
+	end
+	local Humanoid = game.Players.LocalPlayer.Character.Humanoid
+	game.Players.LocalPlayer.Chatted:Connect(function(msg)
+		if msg == "Rage!" then
+	rm()
+	wait(0.5)
+	Humanoid:FindFirstChild("BodyTypeScale"):Destroy()
+	wait(1)
+	
+	rm()
+	wait(0.5)
+	Humanoid:FindFirstChild("BodyWidthScale"):Destroy()
+	wait(1)
+	
+	rm()
+	wait(0.5)
+	Humanoid:FindFirstChild("BodyDepthScale"):Destroy()
+	wait(1)
+	
+	rm()
+	wait(0.5)
+	Humanoid:FindFirstChild("HeadScale"):Destroy()
+	wait(1)
+		end
+	end)
+end)
+Section:NewLabel("Spiderman Script")
+Section:NewButton("SpiderMan Script", "Be an avenger!", function()
+	loadstring(game:HttpGet('https://iexploit.xyz/scripts/plasma/source/plasmaloader'))()
+end)
+
+
+local Tab = Window:NewTab("Side")
+local Section = Tab:NewSection("Side Scripts")
+Section:NewLabel("fly/admin")
+Section:NewButton("Cmdx", "", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source", true))()
+end)
+
+
+local Tab = Window:NewTab("Extra stuff!")
+local Section = Tab:NewSection("Extra")
+Section:NewKeybind("H to toggle UI", "Press H to hide the ui!", Enum.KeyCode.H, function()
+	Library:ToggleUI()
+end)
+
+
+local Window = Library.CreateLib("Customize", colors)
+Section:NewColorPicker("Blue", "Blue", Color3.fromRGB(2,5,6), function(color)
+    print(color)
+end)
+local colors = {
+    SchemeColor = Color3.fromRGB(0,255,255),
+    Background = Color3.fromRGB(0, 0, 0),
+    Header = Color3.fromRGB(0, 0, 0),
+    TextColor = Color3.fromRGB(255,255,255),
+    ElementColor = Color3.fromRGB(40, 10, 35)
+}
+end)
+for theme, color in pairs(themes) do
+    Section:NewColorPicker(theme, "Change your "..theme, color, function(color3)
+        Library:ChangeColor(theme, color3)
+    end)
+end
